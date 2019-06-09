@@ -14,11 +14,6 @@ from nats_overlay_broker import constants
 class SubscriptionFeed(baseNatsAgent.BaseNATSAgent):
     """Generate a random number of subscriptions."""
 
-    def __init__(self, nats_servers=["nats://127.0.0.1:4222"]):
-        """Initialize the pollution client."""
-        super(SubscriptionFeed, self).__init__(nats_servers)
-        self._subscriptions_count = 0
-
     @staticmethod
     def serialize_subscription(subscription):
         return bytes(json.dumps(subscription), "utf-8")
@@ -38,7 +33,6 @@ class SubscriptionFeed(baseNatsAgent.BaseNATSAgent):
         return subject
 
     async def subscribe_to_subject(self, subject):
-        self._subscriptions_count += 1
         await self._nc.subscribe(subject, cb=self.dummy_callback)
         await self.inc_metric("create-subscription")
 

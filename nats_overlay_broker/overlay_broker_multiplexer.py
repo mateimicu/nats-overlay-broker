@@ -18,7 +18,7 @@ class BrokerMultiplexer(overlay_broker_base.BaseBroker):
     def get_filters(self):
         """Get all the filters from redis."""
         for possible_filter in self._redis.keys("*"):
-            if self._redis.type(key) == b"set":
+            if self._redis.type(possible_filter) == b"set":
                 yield possible_filter
 
     @exceptional.america_please_egzblein
@@ -36,7 +36,7 @@ class BrokerMultiplexer(overlay_broker_base.BaseBroker):
             await self.inc_metric("message-forwarded")
             await self.inc_metric("message-multiplex", len(subjects))
             for subject in subjects:
-                await self._nc.publish(subject.decode(), msg.data)
+                await self.publish(subject.decode(), msg.data)
 
     async def work(self):
         print("Listening for messages to multiplex ...")

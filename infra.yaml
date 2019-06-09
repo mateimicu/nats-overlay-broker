@@ -10,18 +10,6 @@ services:
     deploy:
       replicas: 1
 
-  broker-overlay:
-    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
-    environment:
-      - MODE=broker
-      - REDIS_PASSWORD=Passw0rd
-      - REDIS_HOST=redis-master
-      - NATS_SERVERS=nats://nats:4222
-    ports:
-      - "7777:7777"
-    deploy:
-      replicas: 0
-
   broker-overlay-multiplexer:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
     environment:
@@ -101,7 +89,6 @@ services:
       - NATS_SERVERS=nats://nats:4222
     deploy:
       replicas: 1
-
 
   redis-master:
     image: 'bitnami/redis:5.0.2'

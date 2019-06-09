@@ -23,5 +23,5 @@ class PublicationFeed(baseNatsAgent.BaseNATSAgent):
 
             await self.inc_metric("published-persons")
 
-            await self._nc.publish(constants.BROKER_PUBLISH_SUBJECT, message)
+            await self.publish(constants.BROKER_PUBLISH_SUBJECT, message)
             await asyncio.sleep(constants.SLEEP_TIMEOUT)

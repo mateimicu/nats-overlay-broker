@@ -29,7 +29,8 @@ class BrokerSubscriptionManager(overlay_broker_base.BaseBroker):
         await self.inc_metric("subscriptions")
         print("Received a message on '{subject} - {reply}': {data} -> {f_subject}".format(
               subject=subject, reply=reply, data=data, f_subject=f_subject))
-        await self._nc.publish(reply, bytes(f_subject, "utf-8"))
+        await self.publish(reply, bytes(f_subject, "utf-8"))
+
 
     @exceptional.america_please_egzblein
     async def work(self):

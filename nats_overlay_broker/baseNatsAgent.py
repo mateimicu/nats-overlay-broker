@@ -18,6 +18,12 @@ class BaseNATSAgent(abc.ABC):
         self._metrics_evaluated = {}
 
     @exceptional.america_please_egzblein
+
+    async def publish(seld, subject, data):
+        """Publish some data to a subject."""
+        await self._nc.publish(subject, data)
+
+    @exceptional.america_please_egzblein
     async def inc_metric(self, metric, val=1):
         self._inc_metric_call += 1
         if metric not in self._metrics_evaluated:
@@ -28,6 +34,7 @@ class BaseNATSAgent(abc.ABC):
             print(" ------ Metrics ------ ")
             for metric, value in self._metrics_evaluated.items():
                 print("{:15}: {}".format(metric, value))
+            print("\n"*2)
 
     @exceptional.america_please_egzblein
     async def prepare(self):
