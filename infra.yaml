@@ -1,0 +1,63 @@
+version: '3.4'
+services:
+
+  nats:
+    image: 'nats:latest'
+    ports:
+      - "4222:4222"
+      - "6222:6222"
+      - "8222:8222"
+    deploy:
+      replicas: 1
+
+  broker-overlay:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    environment:
+      MODE: "broker"
+    ports:
+      - "7777:7777"
+    deploy:
+      replicas: 1
+
+  subscriber:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    environment:
+      MODE: "subscriber"
+    deploy:
+      replicas: 1
+
+  publisher:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    command: ["nats_overlay_broker", "publisher", "--nats-server", "nats://nats:4222"]
+    deploy:
+      replicas: 1
+
+  snitch:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    command: ["nats_overlay_broker", "snitch", "--nats-server", "nats://nats:4222"]
+    deploy:
+      replicas: 1
+
+  pollution:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    command: ["nats_overlay_broker", "pollution", "--nats-server", "nats://nats:4222"]
+    deploy:
+      replicas: 1
+
+
+  redis-master:
+    image: 'bitnami/redis:5.0.2'
+    ports:
+      - '6379:6379'
+    environment:
+      - REDIS_REPLICATION_MODE=master 
+      - REDIS_PASSWORD=Passw0rd
+    deploy:
+      restart_policy:
+        condition: any
+    volumes: 
+      - 'redis:/opt/bitnami/redis/etc/'
+
+volumes:
+  redis:
+    driver: local

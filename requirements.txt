@@ -1,0 +1,7 @@
+gunicorn
+flask
+asyncio-nats-client
+asyncio-nats-client[nkeys]
+faker
+requests
+packaging
