@@ -10,12 +10,19 @@ all: test docker-package
 test: virtualenv lint 
 	. .venv/bin/activate && pytest --cov=myproj nats_overlay_broker
 
-
-
+# run an agent
 bare-run:
 	. .venv/bin/activate && nats_overlay_broker ${MODE}
 
 run: virtualenv bare-run
+
+# Profile an agent
+bare-profile-run: 
+	rm -r output.profile || true
+	. .venv/bin/activate && python -m cProfile -o output.profile ./nats_overlay_broker/cli.py ${MODE}
+	snakeviz output.profile
+
+profile-run: virtualenv bare-proile-run
 
 # Run pylint against code
 lint:
