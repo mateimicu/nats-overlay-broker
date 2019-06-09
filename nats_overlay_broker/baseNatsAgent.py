@@ -21,7 +21,7 @@ class BaseNATSAgent(abc.ABC):
                 await self._nc.connect(
                     servers=self._nats_servers,
                     loop=self._loop,
-                    ping_interval=20,
+                    ping_interval=1,
                     max_reconnect_attempts=10,
                 )
                 break

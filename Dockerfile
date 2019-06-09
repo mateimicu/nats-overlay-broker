@@ -2,6 +2,7 @@ FROM python:3.7
 
 COPY ./ /nats_overlay_broker
 
+ENV PYTHONUNBUFFERED=TRUE
 WORKDIR /nats_overlay_broker
 RUN pip3 install -r requirements.txt
 RUN pip3 install -e .

@@ -20,29 +20,65 @@ services:
     ports:
       - "7777:7777"
     deploy:
-      replicas: 3
+      replicas: 0
 
   subscriber:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
-    command: ["nats_overlay_broker", "subscriber", "--nats-server", "nats://nats:4222"]
+    environment:
+      - MODE=subscriber
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
     deploy:
-      replicas: 1
+      replicas: 0
 
   publisher:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
-    command: ["nats_overlay_broker", "publisher", "--nats-server", "nats://nats:4222"]
+    environment:
+      - MODE=publisher
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
     deploy:
-      replicas: 1
+      replicas: 0
+
+  determinist-subscriber:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    environment:
+      - MODE=determinist-subscriber
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
+    deploy:
+      replicas: 0
+
+  determinist-publisher:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    environment:
+      - MODE=determinist-publisher
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
+    deploy:
+      replicas: 0
 
   snitch:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
-    command: ["nats_overlay_broker", "snitch", "--nats-server", "nats://nats:4222"]
+    environment:
+      - MODE=snitch
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
     deploy:
       replicas: 1
 
   pollution:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
-    command: ["nats_overlay_broker", "pollution", "--nats-server", "nats://nats:4222"]
+    environment:
+      - MODE=pollution
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
     deploy:
       replicas: 1
 
@@ -54,11 +90,8 @@ services:
     environment:
       - REDIS_REPLICATION_MODE=master 
       - REDIS_PASSWORD=Passw0rd
-    deploy:
-      restart_policy:
-        condition: any
-    volumes: 
-      - 'redis:/opt/bitnami/redis/etc/'
+    # volumes: 
+    #   - 'redis:/opt/bitnami/redis/etc/'
 
 volumes:
   redis:

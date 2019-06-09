@@ -7,7 +7,11 @@ from nats_overlay_broker import snitch
 from nats_overlay_broker import pollution
 from nats_overlay_broker import publicationFeed
 from nats_overlay_broker import subscriptionFeed
+from nats_overlay_broker import deterministicPublicationFeed
+from nats_overlay_broker import deterministicSubscriptionFeed
 from nats_overlay_broker import overlay_broker
+from nats_overlay_broker import overlay_broker_multiplexer
+from nats_overlay_broker import overlay_broker_subscription_manager
 
 MODES = {
     "old-broker": 
@@ -16,8 +20,19 @@ MODES = {
     "broker": 
         lambda args: overlay_broker.Broker(nats_servers=args.nats_server,redis_host=args.redis_host,redis_password=args.redis_password).start(),
 
+    "broker-m": 
+        lambda args: overlay_broker_multiplexer.BrokerMultiplexer(nats_servers=args.nats_server,redis_host=args.redis_host,redis_password=args.redis_password).start(),
+    "broker-sm": 
+        lambda args: overlay_broker_subscription_manager.BrokerSubscriptionManager(nats_servers=args.nats_server,redis_host=args.redis_host,redis_password=args.redis_password).start(),
+
     "publisher": 
         lambda args: publicationFeed.PublicationFeed(args.nats_server).start(),
+
+    "determinist-subscriber": 
+        lambda args: deterministicSubscriptionFeed.DeterministicSubscriptionFeed(args.nats_server).start(),
+
+    "determinist-publisher": 
+        lambda args: deterministicPublicationFeed.DeterministicPublicationFeed(args.nats_server).start(),
 
     "subscriber": 
         lambda args: subscriptionFeed.SubscriptionFeed(args.nats_server).start(),
