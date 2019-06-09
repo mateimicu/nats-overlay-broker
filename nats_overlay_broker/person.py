@@ -34,6 +34,14 @@ def random_operator(eq_proc=None):
     else:
         return "=="
 
+OPPERATIONS = {
+    "<": lambda x, y: x < y,
+    "<=": lambda x, y: x <= y,
+    ">": lambda x, y: x > y,
+    ">=": lambda x, y: x >= y,
+    "==": lambda x, y: x == y,
+}
+
 
 FIELDS = {
     "name": random_name,
@@ -68,6 +76,23 @@ class Person():
     def get_random_person():
         vals = {key: gen() for key, gen in FIELDS.items()}
         return Person(**vals)
+
+    def applies_to(self, _filter):
+        d_person = self.as_dict()
+
+        for rule in _filter:
+            field = rule['name']
+            cmp_func = OPPERATIONS[rule['op']]
+            val = rule['val']
+
+            try:
+                if not cmp_func(d_person[field], val):
+                    return False 
+            except:
+                return False
+        return True
+
+
 
 def gen_subscriptions(subscriptions_count, rules, eq_rules):
     """Generate a random number of subscriptions.
@@ -139,3 +164,4 @@ def gen_subscriptions(subscriptions_count, rules, eq_rules):
             })
 
     return subscriptions
+

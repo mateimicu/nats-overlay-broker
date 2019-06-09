@@ -5,3 +5,4 @@ asyncio-nats-client[nkeys]
 faker
 requests
 packaging
+redis

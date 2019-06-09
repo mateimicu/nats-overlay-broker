@@ -1,7 +1,7 @@
 IMG_NAME ?= matei10/nats-overlay-brokers
 IMG_TAG ?= latest
 MODE ?= "broker"
-STACK_NAME ?= "demo"
+STACK_NAME ?= "ebs-cluster"
 
 NEXT_TAG := $(shell . .venv/bin/activate && ./get_next_tag.py matei10/nats-overlay-brokers)
 all: test docker-package
@@ -69,3 +69,6 @@ destroy-images:
 	docker image prune -f -a 
 
 destroy:  destory-stack destroy-containers destroy-images
+
+logs:
+	./logs.sh ${CONTAINER}

@@ -18,18 +18,46 @@ RULES = [
 ]
 EQ_RULE = {'dob': .9}
 
+# RULES = [
+# ]
+# EQ_RULE = {}
+
+MAX_SUBSCRIPTIONS = 100
+BATCH = 1
+
 class SubscriptionFeed(baseNatsAgent.BaseNATSAgent):
     """Generate a random number of subscriptions."""
 
+    @staticmethod
+    def serialize_subscription(subscription):
+        return bytes(json.dumps(subscription), "utf-8")
+
+    async def dummy_callback(self, msg):
+        """Print the data."""
+        subject = msg.subject
+        reply = msg.reply
+        data = msg.data.decode()
+
+        print("[Dummy] Received a message on '{subject} - {reply}': {data}".format(
+              subject=subject, reply=reply, data=data))
+
+    async def get_subject_for_subscription(self, subscription):
+        s_subscription = self.serialize_subscription(subscription)
+        response = await self._nc.request(constants.BROKER_SUBJECT_REQUEST, s_subscription, 1)
+        subject = response.data.decode()
+        print("Got for subscription -> subject: {} -> {}".format(
+            s_subscription, subject))
+        return subject
+
+
     async def work(self):
         """Generate a random Number of subscriptions."""
-        print("Start injecting Persons ...")
+        print("Start subscribing ...")
 
-        subscriptions = person.gen_subscriptions(10000, RULES, EQ_RULE)
-        print(len(subscriptions))
-        # while True:
-            # pers = person.Person.get_random_person()
-            # message = bytes(pers.as_json(), "utf-8")
-            # await self._nc.publish(constants.BROKER_PUBLISH_TOPIC, message)
-            # print("Sending on '{}': {}".format( 
-            #     constants.BROKER_PUBLISH_TOPIC, message))
+        for _ in range(int(MAX_SUBSCRIPTIONS/BATCH)):
+            subscriptions = person.gen_subscriptions(BATCH, RULES, EQ_RULE)
+            for subscription in subscriptions:
+                data = self.serialize_subscription(subscription)
+                subject = await self.get_subject_for_subscription(subscription)
+                print("Subscribe to: {}".format(subject))
+                await self._nc.subscribe(subject, cb=self.dummy_callback)

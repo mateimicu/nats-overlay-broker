@@ -23,3 +23,4 @@ class PublicationFeed(baseNatsAgent.BaseNATSAgent):
             await self._nc.publish(constants.BROKER_PUBLISH_SUBJECT, message)
             print("Sending on '{}': {}".format( 
                 constants.BROKER_PUBLISH_SUBJECT, message))
+            await asyncio.sleep(1)

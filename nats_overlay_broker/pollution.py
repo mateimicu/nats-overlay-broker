@@ -29,6 +29,7 @@ class Pollution(baseNatsAgent.BaseNATSAgent):
                 "{}: {}".format(self._client_id, data),
                 "utf-8"
             )
-            await asyncio.sleep(1)
             await self._nc.publish("junk", message)
             print("Sending on 'junk': {}".format(message))
+
+            await asyncio.sleep(1)

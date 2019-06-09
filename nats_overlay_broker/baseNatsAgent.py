@@ -16,12 +16,18 @@ class BaseNATSAgent(abc.ABC):
     async def prepare(self):
         """Prepare the connection."""
         self._nc = NATS()
-        await self._nc.connect(
-            servers=self._nats_servers,
-            loop=self._loop,
-            ping_interval=20,
-            max_reconnect_attempts=10,
-        )
+        for _ in range(10):
+            try:
+                await self._nc.connect(
+                    servers=self._nats_servers,
+                    loop=self._loop,
+                    ping_interval=20,
+                    max_reconnect_attempts=10,
+                )
+                break
+            except Exception as exc:
+                print("Exception in trying to connect: ", exc)
+                await asyncio.sleep(1)
 
     @abc.abstractmethod 
     async def work(self):

@@ -13,16 +13,18 @@ services:
   broker-overlay:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
     environment:
-      MODE: "broker"
+      - MODE=broker
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
     ports:
       - "7777:7777"
     deploy:
-      replicas: 1
+      replicas: 3
 
   subscriber:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
-    environment:
-      MODE: "subscriber"
+    command: ["nats_overlay_broker", "subscriber", "--nats-server", "nats://nats:4222"]
     deploy:
       replicas: 1
 
