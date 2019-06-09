@@ -10,20 +10,6 @@ from nats_overlay_broker import baseNatsAgent
 from nats_overlay_broker import person
 from nats_overlay_broker import constants
 
-RULES = [
-    ("name", .5),
-    ("dob", .7),
-    ("color", 1),
-    ("height", .5),
-]
-EQ_RULE = {'dob': .9}
-
-# RULES = [
-# ]
-# EQ_RULE = {}
-
-MAX_SUBSCRIPTIONS = 10000
-BATCH = 100
 
 class SubscriptionFeed(baseNatsAgent.BaseNATSAgent):
     """Generate a random number of subscriptions."""
@@ -40,35 +26,31 @@ class SubscriptionFeed(baseNatsAgent.BaseNATSAgent):
     async def dummy_callback(self, msg):
         """Print the data."""
         subject = msg.subject
-        reply = msg.reply
         data = msg.data.decode()
-
-        print("[Dummy] Received a message on '{subject} - {reply}': {data}".format(
-              subject=subject, reply=reply, data=data))
+        await self.inc_metric("process-dummy")
+        await self.inc_metric("process-dummy-{}".format(subject))
 
     async def get_subject_for_subscription(self, subscription):
         s_subscription = self.serialize_subscription(subscription)
         response = await self._nc.request(constants.BROKER_SUBJECT_REQUEST, s_subscription, 1)
         subject = response.data.decode()
-        print("Got for subscription -> subject: {} -> {}".format(
-            s_subscription, subject))
-        return subject
 
+        return subject
 
     async def subscribe_to_subject(self, subject):
         self._subscriptions_count += 1
-        if self._subscriptions_count % 100 == 0:
-            print("DATA :", self._subscriptions_count)
         await self._nc.subscribe(subject, cb=self.dummy_callback)
+        await self.inc_metric("create-subscription")
 
     async def work(self):
         """Generate a random Number of subscriptions."""
         print("Start subscribing ...")
 
-        for _ in range(int(MAX_SUBSCRIPTIONS/BATCH)):
-            subscriptions = person.gen_subscriptions(BATCH, RULES, EQ_RULE)
+        for _ in range(int(constants.MAX_SUBSCRIPTIONS/constants.BATCH)):
+            subscriptions = person.gen_subscriptions(
+                constants.BATCH, constants.RULES, constants.EQ_RULE)
+
             for subscription in subscriptions:
                 data = self.serialize_subscription(subscription)
                 subject = await self.get_subject_for_subscription(subscription)
-                print("Subscribe to: {}".format(subject))
                 await self.subscribe_to_subject(subject)

@@ -3,6 +3,8 @@ import asyncio
 from nats.aio.client import Client as NATS
 import abc
 
+from nats_overlay_broker import constants
+from nats_overlay_broker import exceptional
 
 class BaseNATSAgent(abc.ABC):
     """Base Agent."""
@@ -12,7 +14,22 @@ class BaseNATSAgent(abc.ABC):
         self._nats_servers = nats_servers
         self._loop = asyncio.get_event_loop()
         self._nc = None
+        self._inc_metric_call = 0
+        self._metrics_evaluated = {}
 
+    @exceptional.america_please_egzblein
+    async def inc_metric(self, metric, val=1):
+        self._inc_metric_call += 1
+        if metric not in self._metrics_evaluated:
+            self._metrics_evaluated[metric] = 0
+
+        self._metrics_evaluated[metric] += val
+        if self._inc_metric_call % constants.BATCH_PROCESS_MESSAGES:
+            print(" ------ Metrics ------ ")
+            for metric, value in self._metrics_evaluated.items():
+                print("{:15}: {}".format(metric, value))
+
+    @exceptional.america_please_egzblein
     async def prepare(self):
         """Prepare the connection."""
         self._nc = NATS()
@@ -31,8 +48,8 @@ class BaseNATSAgent(abc.ABC):
 
     @abc.abstractmethod 
     async def work(self):
+        """What will the agent do."""
         pass
-
 
     def start(self):
         """Start the client."""

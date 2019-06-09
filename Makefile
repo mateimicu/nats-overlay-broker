@@ -54,10 +54,11 @@ docker-publish: docker-package docker-push
 docker-run: docker-package
 	docker run -ti -e MODE="${MODE}" ${IMG_NAME}:${IMG_TAG}
 
-infra: docker-publish
-	export IMG_NEW_TAG="${NEXT_TAG}" && docker stack deploy --compose-file infra.yaml ${STACK_NAME}
+infra: 
+	export IMG_NEW_TAG=latest && docker stack deploy --compose-file infra.yaml ${STACK_NAME}
 
-deploy: docker-publish infra
+deploy: destory-stack docker-publish
+	export IMG_NEW_TAG="${NEXT_TAG}" && docker stack deploy --compose-file infra.yaml ${STACK_NAME}
 
 destory-stack:
 	docker stack rm ${STACK_NAME}

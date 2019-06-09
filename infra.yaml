@@ -22,6 +22,26 @@ services:
     deploy:
       replicas: 0
 
+  broker-overlay-multiplexer:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    environment:
+      - MODE=broker-m
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
+    deploy:
+      replicas: 1
+
+  broker-overlay-sbscription-manager:
+    image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
+    environment:
+      - MODE=broker-sm
+      - REDIS_PASSWORD=Passw0rd
+      - REDIS_HOST=redis-master
+      - NATS_SERVERS=nats://nats:4222
+    deploy:
+      replicas: 1
+
   subscriber:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
     environment:
@@ -50,7 +70,7 @@ services:
       - REDIS_HOST=redis-master
       - NATS_SERVERS=nats://nats:4222
     deploy:
-      replicas: 0
+      replicas: 1
 
   determinist-publisher:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
@@ -60,7 +80,7 @@ services:
       - REDIS_HOST=redis-master
       - NATS_SERVERS=nats://nats:4222
     deploy:
-      replicas: 0
+      replicas: 1
 
   snitch:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'

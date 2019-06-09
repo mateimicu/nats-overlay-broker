@@ -72,6 +72,9 @@ class Person():
     def as_json(self):
         return json.dumps(self.as_dict())
 
+    def as_json_bytes(self):
+        return bytes(json.dumps(self.as_dict()), "utf-8")
+
     @staticmethod
     def get_random_person():
         vals = {key: gen() for key, gen in FIELDS.items()}
@@ -91,8 +94,6 @@ class Person():
             except:
                 return False
         return True
-
-
 
 def gen_subscriptions(subscriptions_count, rules, eq_rules):
     """Generate a random number of subscriptions.
@@ -149,8 +150,6 @@ def gen_subscriptions(subscriptions_count, rules, eq_rules):
                     "val": FIELDS[field]()
                 })
             break
-
-
 
     # fill other subscriptions 
     for field, proc in local_rules:

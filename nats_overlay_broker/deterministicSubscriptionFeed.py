@@ -55,7 +55,11 @@ class DeterministicSubscriptionFeed(baseNatsAgent.BaseNATSAgent):
     @exceptional.america_please_egzblein
     async def get_subject_for_subscription(self, subscription):
         s_subscription = self.serialize_subscription(subscription)
-        response = await self._nc.request(constants.BROKER_SUBJECT_REQUEST, s_subscription, 5)
+        response = await self._nc.request(
+            constants.BROKER_SUBJECT_REQUEST,
+            s_subscription,
+            constants.NATS_TIMEOUT
+        )
         subject = response.data.decode()
         print("Got for subscription -> subject: {} -> {}".format(
             s_subscription, subject))
@@ -65,7 +69,7 @@ class DeterministicSubscriptionFeed(baseNatsAgent.BaseNATSAgent):
     @exceptional.america_please_egzblein
     async def subscribe_to_subject(self, subject):
         self._subscriptions_count += 1
-        if self._subscriptions_count % 1000 == 0:
+        if self._subscriptions_count % constants.BATCH_PROCESS_MESSAGES == 0:
             print("DATA :", self._subscriptions_count)
         await self._nc.subscribe(subject, cb=self.dummy_callback)
 

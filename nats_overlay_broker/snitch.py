@@ -12,11 +12,8 @@ class Snitch(baseNatsAgent.BaseNATSAgent):
     async def message_handler(self, msg):
         """Process a snitched message."""
         subject = msg.subject
-        reply = msg.reply
-        data = msg.data.decode()
-        print("Received a message on '{subject} - {reply}': {data}".format(
-              subject=subject, reply=reply, data=data))
-
+        await self.inc_metric("sniched-messages")
+        await self.inc_metric("sniched-for-{}".format(subject))
 
     async def work(self):
         print("Listening for messages ...")
@@ -24,6 +21,4 @@ class Snitch(baseNatsAgent.BaseNATSAgent):
     async def prepare(self):
         """Prepare the connection and subscription."""
         await super(Snitch, self).prepare()
-
-        # "*" matches any token, at any level of the subject.
         await self._nc.subscribe(">", cb=self.message_handler)

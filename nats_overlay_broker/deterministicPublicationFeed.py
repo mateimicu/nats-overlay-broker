@@ -44,19 +44,19 @@ PERSONS = [
 ]
 
 class DeterministicPublicationFeed(baseNatsAgent.BaseNATSAgent):
-    """Generate Persons and publish them."""
+    """Generate Persons and publish them in a deterministic way."""
 
     async def work(self):
         """Publish random Persons."""
         print("Start injecting Persons ...")
 
         while True:
-            for _ in range(1000):
+            for _ in range(constants.BATCH_PROCESS_MESSAGES):
                 for pers in PERSONS:
                     pers._dob = str("{:.25f}".format(time.time()))
                     message = bytes(pers.as_json(), "utf-8")
                     await self._nc.publish(constants.BROKER_PUBLISH_SUBJECT, message)
                     # print("Sending on '{}': {}".format( 
                     #     constants.BROKER_PUBLISH_SUBJECT, message))
-            await asyncio.sleep(1)
-            print("Sent 1000 messages")
+            await asyncio.sleep(constants.SLEEP_TIMEOUT)
+            print("Sent {} messages".format(constants.SLEEP_TIMEOUT))

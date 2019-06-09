@@ -19,8 +19,9 @@ class PublicationFeed(baseNatsAgent.BaseNATSAgent):
 
         while True:
             pers = person.Person.get_random_person()
-            message = bytes(pers.as_json(), "utf-8")
+            message = pers.as_json_bytes()
+
+            await self.inc_metric("published-persons")
+
             await self._nc.publish(constants.BROKER_PUBLISH_SUBJECT, message)
-            print("Sending on '{}': {}".format( 
-                constants.BROKER_PUBLISH_SUBJECT, message))
-            await asyncio.sleep(1)
+            await asyncio.sleep(constants.SLEEP_TIMEOUT)

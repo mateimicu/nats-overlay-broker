@@ -1,25 +1,21 @@
 #!/usr/bin/env python
 """Basic CLI implementation."""
 import argparse
+import logging
+import sys
 
-from nats_overlay_broker import webapp
+
 from nats_overlay_broker import snitch
 from nats_overlay_broker import pollution
 from nats_overlay_broker import publicationFeed
 from nats_overlay_broker import subscriptionFeed
 from nats_overlay_broker import deterministicPublicationFeed
 from nats_overlay_broker import deterministicSubscriptionFeed
-from nats_overlay_broker import overlay_broker
 from nats_overlay_broker import overlay_broker_multiplexer
 from nats_overlay_broker import overlay_broker_subscription_manager
 
+
 MODES = {
-    "old-broker": 
-        lambda args: webapp.BROKER.run(host='0.0.0.0', port='7777'),
-
-    "broker": 
-        lambda args: overlay_broker.Broker(nats_servers=args.nats_server,redis_host=args.redis_host,redis_password=args.redis_password).start(),
-
     "broker-m": 
         lambda args: overlay_broker_multiplexer.BrokerMultiplexer(nats_servers=args.nats_server,redis_host=args.redis_host,redis_password=args.redis_password).start(),
     "broker-sm": 
@@ -44,6 +40,16 @@ MODES = {
     lambda args: pollution.Pollution(args.nats_server).start()
 }
 
+def prepare_logger():
+    root = logging.getLogger()
+    root.setLevel(logging.DEBUG)
+
+    handler = logging.StreamHandler(sys.stdout)
+    handler.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    root.addHandler(handler)
+
 def get_parser():
     """Create a new Argument Parser."""
     parser = argparse.ArgumentParser()
@@ -60,9 +66,12 @@ def get_parser():
 def main():
     """Main entry point for the CLI."""
     print("Agent ...", flush=True)
+    prepare_logger()
+
     parser = get_parser()
     args = parser.parse_args()
     print(args, flush=True)
+
     MODES[args.mode](args)
 
 if __name__ == "__main__":
