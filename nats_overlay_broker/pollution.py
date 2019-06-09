@@ -4,16 +4,15 @@ import string
 import socket
 
 import asyncio
-from nats.aio.client import Client as NATS
 
-from nats_overlay_broker import baseNatsAgent
+from nats_overlay_broker import base_nats_agent
 
-class Pollution(baseNatsAgent.BaseNATSAgent):
+class Pollution(base_nats_agent.BaseNATSAgent):
     """Pollute the `junk` channel."""
 
-    def __init__(self, nats_servers=["nats://127.0.0.1:4222"]):
+    def __init__(self, *args, **kwargs):
         """Initialize the pollution client."""
-        super(Pollution, self).__init__(nats_servers)
+        super(Pollution, self).__init__(*args, **kwargs)
         self._host_name = socket.gethostname()
         self._client_random_id = ''.join(random.choice(string.ascii_lowercase) for i in range(4))
         self._client_id = "[{}]-{}".format(self._client_random_id, self._host_name)
@@ -31,5 +30,4 @@ class Pollution(baseNatsAgent.BaseNATSAgent):
             )
             await self.publish("junk", message)
             print("Sending on 'junk': {}".format(message))
-
             await asyncio.sleep(1)

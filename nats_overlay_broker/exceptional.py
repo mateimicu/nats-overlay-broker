@@ -3,11 +3,13 @@
 import functools
 
 def america_please_egzblein(func):
+    """Print the exception of a coroutine."""
     @functools.wraps(func)
     async def wrapped(*args):
+        """Wrapper function."""
         try:
             return await func(*args)
         except Exception as exc:
             print("Exceptions :", exc)
-            raise 
+            raise
     return wrapped

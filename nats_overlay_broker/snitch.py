@@ -1,11 +1,7 @@
 """Simple listener for all the messages."""
-import asyncio
-from nats.aio.client import Client as NATS
+from nats_overlay_broker import base_nats_agent
 
-from nats_overlay_broker import baseNatsAgent
-
-
-class Snitch(baseNatsAgent.BaseNATSAgent):
+class Snitch(base_nats_agent.BaseNATSAgent):
     """Snitch all the messages that are passed."""
 
 
@@ -16,9 +12,10 @@ class Snitch(baseNatsAgent.BaseNATSAgent):
         await self.inc_metric("sniched-for-{}".format(subject))
 
     async def work(self):
+        """All the work is done in callbacks."""
         print("Listening for messages ...")
 
     async def prepare(self):
         """Prepare the connection and subscription."""
         await super(Snitch, self).prepare()
-        await self._nc.subscribe(">", cb=self.message_handler)
+        await self.nats.subscribe(">", cb=self.message_handler)

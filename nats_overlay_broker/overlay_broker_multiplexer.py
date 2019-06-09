@@ -1,11 +1,5 @@
-"""Overlay Broker."""
-import uuid
+"""Overlay Broker used to multiplex messages."""
 import json
-
-import redis
-import asyncio
-from nats.aio.client import Client as NATS
-
 
 from nats_overlay_broker import overlay_broker_base
 from nats_overlay_broker import constants
@@ -23,6 +17,7 @@ class BrokerMultiplexer(overlay_broker_base.BaseBroker):
 
     @exceptional.america_please_egzblein
     async def multiplex(self, msg):
+        """Multiplex a message on all subscriptions that match."""
         subject = msg.subject
         pers = person.Person(**json.loads(msg.data.decode()))
 
@@ -39,9 +34,10 @@ class BrokerMultiplexer(overlay_broker_base.BaseBroker):
                 await self.publish(subject.decode(), msg.data)
 
     async def work(self):
+        """All the work is done in callbacks."""
         print("Listening for messages to multiplex ...")
 
     async def prepare(self):
         """Prepare the connection and subscription."""
         await super(BrokerMultiplexer, self).prepare()
-        await self._nc.subscribe(constants.BROKER_PUBLISH_SUBJECT, cb=self.multiplex)
+        await self.nats.subscribe(constants.BROKER_PUBLISH_SUBJECT, cb=self.multiplex)

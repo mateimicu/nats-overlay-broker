@@ -1,16 +1,13 @@
 """Generate a feed of publications."""
-import random
-import socket
-import json
 import time
-
 import asyncio
-from nats.aio.client import Client as NATS
 
-from nats_overlay_broker import baseNatsAgent
+from nats_overlay_broker import base_nats_agent
 from nats_overlay_broker import person
 from nats_overlay_broker import constants
 from nats_overlay_broker import exceptional
+
+# pylint: disable=protected-access
 
 PERSONS = [
     person.Person(
@@ -43,9 +40,10 @@ PERSONS = [
     ),
 ]
 
-class DeterministicPublicationFeed(baseNatsAgent.BaseNATSAgent):
+class DeterministicPublicationFeed(base_nats_agent.BaseNATSAgent):
     """Generate Persons and publish them in a deterministic way."""
 
+    @exceptional.america_please_egzblein
     async def work(self):
         """Publish random Persons."""
         print("Start injecting Persons ...")
@@ -56,7 +54,5 @@ class DeterministicPublicationFeed(baseNatsAgent.BaseNATSAgent):
                     pers._dob = str("{:.25f}".format(time.time()))
                     message = bytes(pers.as_json(), "utf-8")
                     await self.publish(constants.BROKER_PUBLISH_SUBJECT, message)
-                    # print("Sending on '{}': {}".format( 
-                    #     constants.BROKER_PUBLISH_SUBJECT, message))
             await asyncio.sleep(constants.SLEEP_TIMEOUT)
             print("Sent {} messages".format(constants.SLEEP_TIMEOUT))

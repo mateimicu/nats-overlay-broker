@@ -1,16 +1,11 @@
 """Generate a feed of publications."""
-import random
-import socket
-import json
-
 import asyncio
-from nats.aio.client import Client as NATS
 
-from nats_overlay_broker import baseNatsAgent
+from nats_overlay_broker import base_nats_agent
 from nats_overlay_broker import person
 from nats_overlay_broker import constants
 
-class PublicationFeed(baseNatsAgent.BaseNATSAgent):
+class PublicationFeed(base_nats_agent.BaseNATSAgent):
     """Generate Persons and publish them."""
 
     async def work(self):

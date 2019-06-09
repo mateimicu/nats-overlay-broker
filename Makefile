@@ -7,8 +7,10 @@ NEXT_TAG := $(shell . .venv/bin/activate && ./get_next_tag.py matei10/nats-overl
 all: test docker-package
 
 # Run tests
-test: virtualenv lint 
-	. .venv/bin/activate && pytest --cov=myproj nats_overlay_broker
+bare-test: lint 
+	. .venv/bin/activate && pytest --cov=nats_overlay_broker nats_overlay_broker
+
+test: virtualenv bare-test
 
 # run an agent
 bare-run:

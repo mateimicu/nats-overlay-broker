@@ -4,3 +4,4 @@ faker
 requests
 packaging
 redis
+async_property
