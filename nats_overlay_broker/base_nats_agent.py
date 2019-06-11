@@ -2,13 +2,17 @@
 import asyncio
 import abc
 
-from nats.aio.client import Client as NATS
-from nats.aio.errors import ErrTimeout, ErrNoServers
-from async_property import async_property
 
+from nats.aio.client import Client as NATS
+from nats.aio import errors
 
 from nats_overlay_broker import constants
 from nats_overlay_broker import exceptional
+
+# pylint: disable=broad-except
+ITEMS_TO_EXCLUDE = [
+    "process-dummy-broker",
+]
 
 class BaseNATSAgent(abc.ABC):
     """Base Agent."""
@@ -22,25 +26,56 @@ class BaseNATSAgent(abc.ABC):
         self._nc = None
         self._inc_metric_call = 0
         self._metrics_evaluated = {}
+        self._subjects_subscribed_to = set()
 
     @exceptional.america_please_egzblein
     async def publish(self, subject, data):
         """Publish some data to a subject."""
+        await self.inc_metric("published-data")
         await self.nats.publish(subject, data)
 
     @exceptional.america_please_egzblein
     async def inc_metric(self, metric, val=1):
         """Increment the metric."""
+        # exclude verbose metrics
+        for exc in ITEMS_TO_EXCLUDE:
+            if exc in metric:
+                return 
         self._inc_metric_call += 1
         if metric not in self._metrics_evaluated:
             self._metrics_evaluated[metric] = 0
 
         self._metrics_evaluated[metric] += val
-        if self._inc_metric_call % constants.BATCH_PROCESS_MESSAGES == 0:
-            print(" ------ Metrics ------ ")
-            for metric_name, value in self._metrics_evaluated.items():
-                print("{:15}: {}".format(metric_name, value))
-            print("\n"*2)
+
+    def _prune_metrics(self):
+        """Prune metrics."""
+        new_metrics = {}
+        for metric_name, value in self._metrics_evaluated.items():
+            if not isinstance(value, int) or value > constants.MIN_VALUE_METRIC:
+                new_metrics[metric_name] = value
+        self._metrics_evaluated = new_metrics
+
+    def __print_metrics_header(self):
+        """Print the header of the metrics section."""
+        print(" ------ Metrics ------ ")
+
+    def __print_metrics_footer(self):
+        """Print the header of the metrics section."""
+        print("\n"*2)
+
+    def __print_metrics(self):
+        """"Print Metrics body."""
+        for metric_name, value in self._metrics_evaluated.items():
+            print("{:15}: {}".format(metric_name, value))
+
+    async def metrics(self):
+        """Print Metrics."""
+        while True:
+            # self._prune_metrics()
+            self.__print_metrics_header()
+            self.__print_metrics()
+            self.__print_metrics_footer()
+            await asyncio.sleep(constants.METRICS_SLEEP)
 
     @exceptional.america_please_egzblein
     async def prepare(self):
@@ -53,32 +88,58 @@ class BaseNATSAgent(abc.ABC):
             max_reconnect_attempts=10,
         )
 
-    @async_property
-    async def nats(self):
+    @property
+    def nats(self):
         """NATS client."""
-        for _ in range(constants.RETRY_COUNT):
-            try:
-                if self._nc.ping():
-                    return self._nc
-            except (ErrTimeout, ErrNoServers):
-                await asyncio.sleep(constants.SLEEP_TIMEOUT)
-        raise Exception("Can't connect to NATS server ...")
+        return self._nc
+
+    async def subscribe_to_subject(self, subject, cb):
+        """Subscribe to a subject."""
+        sid = await self.nats.subscribe(subject, cb=cb)
+        self._subjects_subscribed_to.add(sid)
+        await self.inc_metric("create-subscription")
 
     @abc.abstractmethod
     async def work(self):
         """What will the agent do."""
 
+    async def shutdown(self, signal):
+        print("Received exit signal {}...".format(signal.name))
+        tasks = [t for t in asyncio.all_tasks() if t is not
+                 asyncio.current_task()]
+        try:
+            print("Subscribe from all nats subjects.")
+            for sid in self._subjects_subscribed_to:
+                
+                await self.nats.unsubscribe(sid)
+
+            print("Drain nats connections.")
+            await self.nats.drain()
+        except errors.ErrConnectionClosed:
+            print("Nats connection terminated already ...")
+
+        print("Cancel all async tasks.")
+        [task.cancel() for task in tasks]
+
+        # self.metrics will never stop, maybe from asyncio.sleep
+        # print("Canceling outstanding tasks")
+        # await asyncio.gather(*tasks)
+        self._loop.stop()
+        print("Shutdown complete.")
+
     def start(self):
         """Start the client."""
         print("Start agent ...")
+        for sig in constants.TERM_SIGNALS:
+            self._loop.add_signal_handler(
+                sig, lambda sig=sig: asyncio.create_task(self.shutdown(sig)))
 
         try:
             asyncio.ensure_future(self.prepare())
+            asyncio.ensure_future(self.metrics())
             asyncio.ensure_future(self.work())
             self._loop.run_forever()
-        except KeyboardInterrupt:
-            pass
         finally:
             print("Closing Loop")
-            self.nats.drain()
             self._loop.close()
+

@@ -29,7 +29,7 @@ class BrokerMultiplexer(overlay_broker_base.BaseBroker):
 
             subjects = self._redis.sscan(_filter)[1]
             await self.inc_metric("message-forwarded")
-            await self.inc_metric("message-multiplex", len(subjects))
+            await self.inc_metric("message-multiplex-to-subjects", len(subjects))
             for subject in subjects:
                 await self.publish(subject.decode(), msg.data)
 

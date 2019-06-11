@@ -4,7 +4,8 @@ MODE ?= "broker"
 STACK_NAME ?= "ebs-cluster"
 
 NEXT_TAG := $(shell . .venv/bin/activate && ./get_next_tag.py matei10/nats-overlay-brokers)
-all: test docker-package
+
+all: test docker-package deploy
 
 # Run tests
 bare-test: lint 
@@ -56,11 +57,10 @@ docker-publish: docker-package docker-push
 docker-run: docker-package
 	docker run -ti -e MODE="${MODE}" ${IMG_NAME}:${IMG_TAG}
 
-infra: 
-	export IMG_NEW_TAG=latest && docker stack deploy --compose-file infra.yaml ${STACK_NAME}
-
-deploy: destory-stack docker-publish
+infra-update: docker-publish
 	export IMG_NEW_TAG="${NEXT_TAG}" && docker stack deploy --compose-file infra.yaml ${STACK_NAME}
+
+deploy: destory-stack infra-update
 
 destory-stack:
 	docker stack rm ${STACK_NAME}

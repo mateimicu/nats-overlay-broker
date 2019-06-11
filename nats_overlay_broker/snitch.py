@@ -9,7 +9,7 @@ class Snitch(base_nats_agent.BaseNATSAgent):
         """Process a snitched message."""
         subject = msg.subject
         await self.inc_metric("sniched-messages")
-        await self.inc_metric("sniched-for-{}".format(subject))
+        # await self.inc_metric("sniched-for-{}".format(subject))
 
     async def work(self):
         """All the work is done in callbacks."""

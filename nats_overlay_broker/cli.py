@@ -59,7 +59,7 @@ MODES = {
 def prepare_logger():
     """Prepare the root parser."""
     root = logging.getLogger()
-    root.setLevel(logging.DEBUG)
+    # root.setLevel(logging.DEBUG)
 
     handler = logging.StreamHandler(sys.stdout)
     handler.setLevel(logging.DEBUG)

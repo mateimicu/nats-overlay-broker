@@ -31,4 +31,4 @@ class BaseBroker(base_nats_agent.BaseNATSAgent):
                 )
             except Exception as exc:
                 print("Exception: ", exc)
-                await asyncio.sleep(constants.SLEEP_TIMEOUT)
+                await asyncio.sleep(constants.ERROT_SLEEP)

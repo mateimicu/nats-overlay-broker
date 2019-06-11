@@ -1,4 +1,5 @@
 """Generate a random number of subscriptions."""
+import asyncio
 import time
 import json
 
@@ -21,15 +22,25 @@ class DeterministicSubscriptionFeed(subscription_feed.SubscriptionFeed):
         """Initialize the pollution client."""
         super(DeterministicSubscriptionFeed, self).__init__(*args, **kwargs)
         self._latency = []
+        self._all_latency = []
+        self._metrics_evaluated["avg-latency"] = 0
 
     def append_latency(self, delta):
         """Add a new latency data point."""
         self._latency.append(delta)
-
         if len(self._latency) > constants.BATCH_PROCESS_MESSAGES:
             avg_latency = sum(self._latency) / len(self._latency)
-            self._metrics_evaluated["avg-latency"] = avg_latency
+            self._metrics_evaluated["avg-latency-last-batch"] = avg_latency
             self._latency = []
+
+            self._all_latency.append(avg_latency)
+
+            total_avg_latency = sum(self._all_latency) / len(self._all_latency)
+            self._metrics_evaluated["avg-latency"] = total_avg_latency
+
+    def __print_metrics(self):
+        super(DeterministicSubscriptionFeed, self).__print_metrics()
+        print("[Set] all-latency :", self._all_latency)
 
     @exceptional.america_please_egzblein
     async def dummy_callback(self, msg):
@@ -43,7 +54,6 @@ class DeterministicSubscriptionFeed(subscription_feed.SubscriptionFeed):
     async def work(self):
         """Create a deterministic number of subscriptions."""
         print("Start subscribing ...")
-
         for subscription in SUBCRIPTIONS:
             subject = await self.get_subject_for_subscription(subscription)
-            await self.subscribe_to_subject(subject)
+            await self.subscribe_to_subject(subject, self.dummy_callback)

@@ -54,5 +54,4 @@ class DeterministicPublicationFeed(base_nats_agent.BaseNATSAgent):
                     pers._dob = str("{:.25f}".format(time.time()))
                     message = bytes(pers.as_json(), "utf-8")
                     await self.publish(constants.BROKER_PUBLISH_SUBJECT, message)
-            await asyncio.sleep(constants.SLEEP_TIMEOUT)
-            print("Sent {} messages".format(constants.SLEEP_TIMEOUT))
+            await asyncio.sleep(constants.DETERMINISTIC_SLEEP_TIMEOUT)

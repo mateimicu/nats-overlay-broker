@@ -22,8 +22,6 @@ class BrokerSubscriptionManager(overlay_broker_base.BaseBroker):
         data = msg.data.decode()
         self._redis.sadd(data, f_subject)
         await self.inc_metric("subscriptions")
-        print("Received a message on '{subject} - {reply}': {data} -> {f_subject}".format(
-            subject=subject, reply=reply, data=data, f_subject=f_subject))
         await self.publish(reply, bytes(f_subject, "utf-8"))
 
 
