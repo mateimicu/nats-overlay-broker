@@ -1,5 +1,4 @@
 """Generate a random number of subscriptions."""
-import asyncio
 import time
 import json
 

@@ -40,7 +40,7 @@ class BaseNATSAgent(abc.ABC):
         # exclude verbose metrics
         for exc in ITEMS_TO_EXCLUDE:
             if exc in metric:
-                return 
+                return
         self._inc_metric_call += 1
         if metric not in self._metrics_evaluated:
             self._metrics_evaluated[metric] = 0
@@ -55,11 +55,13 @@ class BaseNATSAgent(abc.ABC):
                 new_metrics[metric_name] = value
         self._metrics_evaluated = new_metrics
 
-    def __print_metrics_header(self):
+    @staticmethod
+    def __print_metrics_header():
         """Print the header of the metrics section."""
         print(" ------ Metrics ------ ")
 
-    def __print_metrics_footer(self):
+    @staticmethod
+    def __print_metrics_footer():
         """Print the header of the metrics section."""
         print("\n"*2)
 
@@ -93,9 +95,9 @@ class BaseNATSAgent(abc.ABC):
         """NATS client."""
         return self._nc
 
-    async def subscribe_to_subject(self, subject, cb):
+    async def subscribe_to_subject(self, subject, callback):
         """Subscribe to a subject."""
-        sid = await self.nats.subscribe(subject, cb=cb)
+        sid = await self.nats.subscribe(subject, cb=callback)
         self._subjects_subscribed_to.add(sid)
         await self.inc_metric("create-subscription")
 
@@ -104,13 +106,13 @@ class BaseNATSAgent(abc.ABC):
         """What will the agent do."""
 
     async def shutdown(self, signal):
+        """Shut down the event loop."""
         print("Received exit signal {}...".format(signal.name))
         tasks = [t for t in asyncio.all_tasks() if t is not
                  asyncio.current_task()]
         try:
             print("Subscribe from all nats subjects.")
             for sid in self._subjects_subscribed_to:
-                
                 await self.nats.unsubscribe(sid)
 
             print("Drain nats connections.")
@@ -119,6 +121,7 @@ class BaseNATSAgent(abc.ABC):
             print("Nats connection terminated already ...")
 
         print("Cancel all async tasks.")
+        # pylint: disable=expression-not-assigned
         [task.cancel() for task in tasks]
 
         # self.metrics will never stop, maybe from asyncio.sleep
@@ -142,4 +145,3 @@ class BaseNATSAgent(abc.ABC):
         finally:
             print("Closing Loop")
             self._loop.close()
-

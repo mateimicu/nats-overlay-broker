@@ -17,7 +17,6 @@ class BrokerSubscriptionManager(overlay_broker_base.BaseBroker):
     async def subject_for_filter(self, msg):
         """Reply with a subject for a given filter."""
         f_subject = self.get_random_subject()
-        subject = msg.subject
         reply = msg.reply
         data = msg.data.decode()
         self._redis.sadd(data, f_subject)
