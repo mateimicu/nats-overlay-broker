@@ -18,7 +18,7 @@ services:
       - REDIS_HOST=redis-master
       - NATS_SERVERS=nats://nats:4222
     deploy:
-      replicas: 1
+      replicas: 3
 
   broker-overlay-sbscription-manager:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
@@ -38,7 +38,7 @@ services:
       - REDIS_HOST=redis-master
       - NATS_SERVERS=nats://nats:4222
     deploy:
-      replicas: 0
+      replicas: 3
 
   publisher:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'
@@ -48,7 +48,7 @@ services:
       - REDIS_HOST=redis-master
       - NATS_SERVERS=nats://nats:4222
     deploy:
-      replicas: 0
+      replicas: 3
 
   determinist-subscriber:
     image: 'matei10/nats-overlay-brokers:${IMG_NEW_TAG}'

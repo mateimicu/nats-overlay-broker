@@ -1,0 +1,2262 @@
+./logs.sh ebs-cluster_determinist-subscriber
+PYTHONUNBUFFERED=TRUE
+REDIS_PASSWORD=Passw0rd
+LANG=C.UTF-8
+HOSTNAME=8367c24814c0
+GPG_KEY=0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D
+REDIS_HOST=redis-master
+PWD=/nats_overlay_broker
+HOME=/root
+NATS_SERVERS=nats://nats:4222
+PYTHON_VERSION=3.7.3
+SHLVL=1
+MODE=determinist-subscriber
+PATH=/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PYTHON_PIP_VERSION=19.1.1
+_=/usr/bin/env
+Entry point
+Agent ...
+Namespace(mode='determinist-subscriber', nats_server=['nats://nats:4222'], redis_host='redis-master', redis_password='Passw0rd')
+Start agent ...
+ ------ Metrics ------ 
+avg-latency    : 0
+
+
+
+Start subscribing ...
+ ------ Metrics ------ 
+avg-latency    : 0
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 0
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 14.130847638476633
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 3146
+avg-latency-last-batch: 4.742598382298818
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 14.130847638476633
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 3146
+avg-latency-last-batch: 4.742598382298818
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 12.195779956346819
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 4787
+avg-latency-last-batch: 8.47323138604383
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 12.195779956346819
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 4787
+avg-latency-last-batch: 8.47323138604383
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 10.370667535589165
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 6758
+avg-latency-last-batch: 2.714155110532414
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.896181456789286
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 8069
+avg-latency-last-batch: 9.00649448973452
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.476248797640299
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 8723
+avg-latency-last-batch: 2.75732625125649
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.31722537060222
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 10034
+avg-latency-last-batch: 9.438751386787125
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.31722537060222
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 10034
+avg-latency-last-batch: 9.438751386787125
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.31722537060222
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 10034
+avg-latency-last-batch: 9.438751386787125
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.86133265692144
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 11485
+avg-latency-last-batch: 15.40145933699465
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.86133265692144
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 11485
+avg-latency-last-batch: 15.40145933699465
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.86133265692144
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 11485
+avg-latency-last-batch: 15.40145933699465
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.91248372637803
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 13315
+avg-latency-last-batch: 6.668307064060204
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.91248372637803
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 13315
+avg-latency-last-batch: 6.668307064060204
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.62744582725698
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 15286
+avg-latency-last-batch: 3.537816196144698
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.62744582725698
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 15286
+avg-latency-last-batch: 3.537816196144698
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.697610005012612
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 16597
+avg-latency-last-batch: 12.084124971054747
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.697610005012612
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 16597
+avg-latency-last-batch: 12.084124971054747
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.697610005012612
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 16597
+avg-latency-last-batch: 12.084124971054747
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.907634639971139
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 17978
+avg-latency-last-batch: 13.486133120968908
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.907634639971139
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 17978
+avg-latency-last-batch: 13.486133120968908
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 10.1838226726907
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 20216
+avg-latency-last-batch: 12.23894292104268
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 10.064090137837793
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 20864
+avg-latency-last-batch: 5.274788743721511
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 10.064090137837793
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 20864
+avg-latency-last-batch: 5.274788743721511
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 10.022034128496166
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 22505
+avg-latency-last-batch: 11.489848372941008
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 10.022034128496166
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 22505
+avg-latency-last-batch: 11.489848372941008
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.8762623051148
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 24292
+avg-latency-last-batch: 6.404847641904911
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.8762623051148
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 24292
+avg-latency-last-batch: 6.404847641904911
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.838348226506934
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 25742
+avg-latency-last-batch: 10.72256012638648
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.838348226506934
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 25742
+avg-latency-last-batch: 10.72256012638648
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.838629812563992
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 27172
+avg-latency-last-batch: 10.802856978780019
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.688429759682645
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 27578
+avg-latency-last-batch: 1.5776269040897697
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.676388652300382
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 28959
+avg-latency-last-batch: 9.537228884097345
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.625071883185191
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 29365
+avg-latency-last-batch: 6.700016043619243
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.538612567357635
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 31005
+avg-latency-last-batch: 9.473920043595061
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.538612567357635
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 31005
+avg-latency-last-batch: 9.473920043595061
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.376539811051316
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 32792
+avg-latency-last-batch: 5.166379103403606
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.376539811051316
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 32792
+avg-latency-last-batch: 5.166379103403606
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.208611210797654
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 34762
+avg-latency-last-batch: 1.995696911078965
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.208611210797654
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 34762
+avg-latency-last-batch: 1.995696911078965
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.071272606487609
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 36733
+avg-latency-last-batch: 1.5120979164412873
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.071272606487609
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 36733
+avg-latency-last-batch: 1.5120979164412873
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.948010434437391
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 38704
+avg-latency-last-batch: 1.8979592408962593
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.937487680435714
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 40015
+avg-latency-last-batch: 9.47975941380103
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.929797309339644
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 40527
+avg-latency-last-batch: 8.322257992750156
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.837896391985536
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 41977
+avg-latency-last-batch: 8.522507305392724
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.790673888451407
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 42497
+avg-latency-last-batch: 4.871206095118723
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.69551889624057
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 44132
+avg-latency-last-batch: 4.7099797882719665
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.69551889624057
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 44132
+avg-latency-last-batch: 4.7099797882719665
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.69551889624057
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 44132
+avg-latency-last-batch: 4.7099797882719665
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.91887761215954
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 46893
+avg-latency-last-batch: 13.046272016570953
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.91887761215954
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 46893
+avg-latency-last-batch: 13.046272016570953
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.01564093593071
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 50027
+avg-latency-last-batch: 8.742739534663583
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 9.01564093593071
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 50027
+avg-latency-last-batch: 8.742739534663583
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.90493086103141
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 51998
+avg-latency-last-batch: 5.044919511753166
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.90493086103141
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 51998
+avg-latency-last-batch: 5.044919511753166
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.811564210301487
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 53785
+avg-latency-last-batch: 4.235615619880234
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.775161266785489
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 55214
+avg-latency-last-batch: 8.145659992080963
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.707539625360432
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 55620
+avg-latency-last-batch: 1.2691590686044294
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.679511658412412
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 57470
+avg-latency-last-batch: 5.79722606017442
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.679511658412412
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 57470
+avg-latency-last-batch: 5.79722606017442
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.596090227027739
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 59440
+avg-latency-last-batch: 3.8241820211657984
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.596090227027739
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 59440
+avg-latency-last-batch: 3.8241820211657984
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.575382563858652
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 61081
+avg-latency-last-batch: 9.335650771915793
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.575382563858652
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 61081
+avg-latency-last-batch: 9.335650771915793
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.698812794958533
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 63702
+avg-latency-last-batch: 12.587336785303142
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.65803584569467
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 64362
+avg-latency-last-batch: 3.479363289183961
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.591648255452732
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 66282
+avg-latency-last-batch: 2.089188087962107
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.591648255452732
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 66282
+avg-latency-last-batch: 2.089188087962107
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.589682730615316
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 67923
+avg-latency-last-batch: 8.828172743201494
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.589682730615316
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 67923
+avg-latency-last-batch: 8.828172743201494
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.525436632993278
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 69894
+avg-latency-last-batch: 3.636131985696728
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.525436632993278
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 69894
+avg-latency-last-batch: 3.636131985696728
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.493716243593191
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 71865
+avg-latency-last-batch: 2.619972430303425
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.493716243593191
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 71865
+avg-latency-last-batch: 2.619972430303425
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.515388269555867
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 73506
+avg-latency-last-batch: 10.88908030982027
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.515388269555867
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 73506
+avg-latency-last-batch: 10.88908030982027
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.476874666217167
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 75426
+avg-latency-last-batch: 4.14901122885074
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.476874666217167
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 75426
+avg-latency-last-batch: 4.14901122885074
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.469759320453225
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 77067
+avg-latency-last-batch: 9.5494331713922
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.469759320453225
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 77067
+avg-latency-last-batch: 9.5494331713922
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.455042752771668
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 78518
+avg-latency-last-batch: 9.486299652301385
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.455042752771668
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 78518
+avg-latency-last-batch: 9.486299652301385
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.541832460605931
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 81370
+avg-latency-last-batch: 9.265595086796317
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.541832460605931
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 81370
+avg-latency-last-batch: 9.265595086796317
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.541832460605931
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 81370
+avg-latency-last-batch: 9.265595086796317
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.650722504123838
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 84651
+avg-latency-last-batch: 9.000319420934437
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.650722504123838
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 84651
+avg-latency-last-batch: 9.000319420934437
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.604877127363448
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 86292
+avg-latency-last-batch: 5.743440381543127
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.604877127363448
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 86292
+avg-latency-last-batch: 5.743440381543127
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.682684555503723
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 89389
+avg-latency-last-batch: 6.665771163628249
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.682684555503723
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 89389
+avg-latency-last-batch: 6.665771163628249
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.682684555503723
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 89389
+avg-latency-last-batch: 6.665771163628249
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.738936068258928
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 91023
+avg-latency-last-batch: 13.796528636814353
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.738936068258928
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 91023
+avg-latency-last-batch: 13.796528636814353
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.714309137241825
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 92474
+avg-latency-last-batch: 8.857318068692784
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.714309137241825
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 92474
+avg-latency-last-batch: 8.857318068692784
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.79374812709591
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 95136
+avg-latency-last-batch: 12.618707086273773
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.790102305448869
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 95535
+avg-latency-last-batch: 8.101042014158176
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.773302534231581
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 96985
+avg-latency-last-batch: 9.45510735245284
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.773302534231581
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 96985
+avg-latency-last-batch: 9.45510735245284
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.773302534231581
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 96985
+avg-latency-last-batch: 9.45510735245284
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.830358963483617
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 100080
+avg-latency-last-batch: 8.448127631893653
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.811868612993523
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 101391
+avg-latency-last-batch: 9.613574042291699
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.789776663055235
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 101937
+avg-latency-last-batch: 4.327202775521193
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.778688016777407
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 103367
+avg-latency-last-batch: 9.230637693595506
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.746087863309262
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 103801
+avg-latency-last-batch: 2.0304562488715807
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.737057956501676
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 105658
+avg-latency-last-batch: 7.474270271921824
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.737057956501676
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 105658
+avg-latency-last-batch: 7.474270271921824
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.727368392294013
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 106969
+avg-latency-last-batch: 10.794547989458858
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.715235221318585
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 107299
+avg-latency-last-batch: 6.13086980355238
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.670533571849022
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 109268
+avg-latency-last-batch: 1.573519439754372
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.670533571849022
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 109268
+avg-latency-last-batch: 1.573519439754372
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.662442496711357
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 111049
+avg-latency-last-batch: 6.764343100393604
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.662442496711357
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 111049
+avg-latency-last-batch: 6.764343100393604
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.655991334501065
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 112689
+avg-latency-last-batch: 9.96683282100274
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.655991334501065
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 112689
+avg-latency-last-batch: 9.96683282100274
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.636646624368199
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 114539
+avg-latency-last-batch: 6.143907309054376
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.636646624368199
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 114539
+avg-latency-last-batch: 6.143907309054376
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.624282620058661
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 116179
+avg-latency-last-batch: 9.236889189112924
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.624282620058661
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 116179
+avg-latency-last-batch: 9.236889189112924
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.680294707413854
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 118919
+avg-latency-last-batch: 12.214816359940642
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.656822407788912
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 119577
+avg-latency-last-batch: 3.0938873966772875
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.661758518149098
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 120887
+avg-latency-last-batch: 11.03765352567037
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.642851294765393
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 121363
+avg-latency-last-batch: 4.086210459292292
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.635399973799908
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 122792
+avg-latency-last-batch: 7.812349213335566
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.635399973799908
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 123226
+avg-latency-last-batch: 7.812349213335566
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.598413344185406
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 124867
+avg-latency-last-batch: 5.60149977592651
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.598413344185406
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 124867
+avg-latency-last-batch: 5.60149977592651
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.598413344185406
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 124867
+avg-latency-last-batch: 5.60149977592651
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.670600909654155
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 128034
+avg-latency-last-batch: 6.697807587073473
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.653711643411052
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 129345
+avg-latency-last-batch: 8.510911278144091
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.653711643411052
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 129675
+avg-latency-last-batch: 8.510911278144091
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.653711643411052
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 129675
+avg-latency-last-batch: 8.510911278144091
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.66782887255554
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 132772
+avg-latency-last-batch: 1.7887285474293722
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.66782887255554
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 132772
+avg-latency-last-batch: 1.7887285474293722
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.656755647197416
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 134406
+avg-latency-last-batch: 5.832535671854686
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.656755647197416
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 134406
+avg-latency-last-batch: 5.832535671854686
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.705158602462477
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 137240
+avg-latency-last-batch: 12.16759563682084
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.705158602462477
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 137240
+avg-latency-last-batch: 12.16759563682084
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.731089606227657
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 140407
+avg-latency-last-batch: 3.0466387067250387
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.731089606227657
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 140407
+avg-latency-last-batch: 3.0466387067250387
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.728787149122866
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 142264
+avg-latency-last-batch: 8.411083540754642
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.728787149122866
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 142264
+avg-latency-last-batch: 8.411083540754642
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.695459019738433
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 143820
+avg-latency-last-batch: 5.574665869543415
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.695459019738433
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 143820
+avg-latency-last-batch: 5.574665869543415
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.694483980227346
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 145691
+avg-latency-last-batch: 6.898226375827295
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.694483980227346
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 145691
+avg-latency-last-batch: 6.898226375827295
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.664110938165742
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 147477
+avg-latency-last-batch: 4.370310741984202
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.654342935158871
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 148787
+avg-latency-last-batch: 8.514715752915707
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.628873455973027
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 149347
+avg-latency-last-batch: 1.364817142010687
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.633169313720764
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 150776
+avg-latency-last-batch: 9.673847849497538
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.62813338015164
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 151217
+avg-latency-last-batch: 7.1173533094143435
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.621172108367436
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 152527
+avg-latency-last-batch: 10.315213793052171
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.60988501193679
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 153081
+avg-latency-last-batch: 5.17860769702051
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.59979745077952
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 154721
+avg-latency-last-batch: 8.923234209567012
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.59979745077952
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 154721
+avg-latency-last-batch: 8.923234209567012
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.59979745077952
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 154721
+avg-latency-last-batch: 8.923234209567012
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.642556495143488
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 157909
+avg-latency-last-batch: 1.9747996872770572
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.642556495143488
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 157909
+avg-latency-last-batch: 1.9747996872770572
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.637711810678685
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 159550
+avg-latency-last-batch: 7.5453932071160414
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.637711810678685
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 159550
+avg-latency-last-batch: 7.5453932071160414
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.637711810678685
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 159550
+avg-latency-last-batch: 7.5453932071160414
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.706851058442307
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 162171
+avg-latency-last-batch: 14.505260155348482
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.706851058442307
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 162171
+avg-latency-last-batch: 14.505260155348482
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.720151513795589
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 163584
+avg-latency-last-batch: 6.605190088648996
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.720151513795589
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 163584
+avg-latency-last-batch: 6.605190088648996
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.697284377184381
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 165489
+avg-latency-last-batch: 2.7445780678899463
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.697284377184381
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 165489
+avg-latency-last-batch: 2.7445780678899463
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.70553756335829
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 167298
+avg-latency-last-batch: 10.053566802761512
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.70553756335829
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 167298
+avg-latency-last-batch: 10.053566802761512
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.679998312549056
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 169204
+avg-latency-last-batch: 5.658312472040782
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.679998312549056
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 169204
+avg-latency-last-batch: 5.658312472040782
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.664883535848249
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 171019
+avg-latency-last-batch: 4.412481103828568
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.664883535848249
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 171019
+avg-latency-last-batch: 4.412481103828568
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.667775188276535
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 172834
+avg-latency-last-batch: 9.826406934780037
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.667775188276535
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 172834
+avg-latency-last-batch: 9.826406934780037
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.643686038783681
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 174622
+avg-latency-last-batch: 6.134016580924302
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.643686038783681
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 174622
+avg-latency-last-batch: 6.134016580924302
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.619280058074684
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 176431
+avg-latency-last-batch: 2.690480058064718
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.619280058074684
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 176431
+avg-latency-last-batch: 2.690480058064718
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.628163540198766
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 178240
+avg-latency-last-batch: 8.586510453157558
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.628163540198766
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 178240
+avg-latency-last-batch: 8.586510453157558
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.603164874200132
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 180049
+avg-latency-last-batch: 4.170394763737144
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.603164874200132
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 180049
+avg-latency-last-batch: 4.170394763737144
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.601245802413032
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 181836
+avg-latency-last-batch: 9.342159242687112
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.587126623400682
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 183146
+avg-latency-last-batch: 9.385828184272476
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.587126623400682
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 183286
+avg-latency-last-batch: 9.385828184272476
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.587126623400682
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 183286
+avg-latency-last-batch: 9.385828184272476
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.606649260613029
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 185763
+avg-latency-last-batch: 10.707476836716582
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.606649260613029
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 185763
+avg-latency-last-batch: 10.707476836716582
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.629921583275094
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 188958
+avg-latency-last-batch: 1.4823127283069664
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.629921583275094
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 188958
+avg-latency-last-batch: 1.4823127283069664
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.628546000024157
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 190745
+avg-latency-last-batch: 7.550304351928467
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.628546000024157
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 190745
+avg-latency-last-batch: 7.550304351928467
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.61692825027737
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 192265
+avg-latency-last-batch: 8.9955503721675
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.61692825027737
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 192265
+avg-latency-last-batch: 8.9955503721675
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.639506545903712
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 194755
+avg-latency-last-batch: 11.431714926413195
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.627791416710568
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 195126
+avg-latency-last-batch: 4.082321289770618
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.60796608219539
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 196935
+avg-latency-last-batch: 1.928467938048159
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.60796608219539
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 196935
+avg-latency-last-batch: 1.928467938048159
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.612880818561148
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 198246
+avg-latency-last-batch: 9.932933118766892
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.610442540832308
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 198722
+avg-latency-last-batch: 7.647322837939996
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.615833934467085
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 200151
+avg-latency-last-batch: 11.233751607274343
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.604168028027242
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 200530
+avg-latency-last-batch: 3.9494713585295838
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.606460066761773
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 201841
+avg-latency-last-batch: 10.162637142364137
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.607393977472057
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 202345
+avg-latency-last-batch: 8.982826083006259
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.595504235998849
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 203656
+avg-latency-last-batch: 9.366652891783419
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.587277816118538
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 203986
+avg-latency-last-batch: 5.247351344712004
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.587277816118538
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 203986
+avg-latency-last-batch: 5.247351344712004
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.607244281873037
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 205627
+avg-latency-last-batch: 10.212986095222885
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.607244281873037
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 205627
+avg-latency-last-batch: 10.212986095222885
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.592896005348381
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 207414
+avg-latency-last-batch: 1.8905128490425156
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.592896005348381
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 207414
+avg-latency-last-batch: 1.8905128490425156
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.589458846233134
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 209222
+avg-latency-last-batch: 5.962154516916789
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.589458846233134
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 209222
+avg-latency-last-batch: 5.962154516916789
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.571869665345613
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 211031
+avg-latency-last-batch: 3.1969570913714564
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.571869665345613
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 211031
+avg-latency-last-batch: 3.1969570913714564
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.569634259191567
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 212846
+avg-latency-last-batch: 7.863735037649463
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.555678914676768
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 214297
+avg-latency-last-batch: 8.627075465139514
+
+
+
+ ------ Metrics ------ 
+avg-latency    : 8.546246241477586
+query-subscription-subject: 3
+query-done-subscription-subject: 3
+create-subscription: 3
+process-dummy  : 214661
+avg-latency-last-batch: 4.518494785426857
+
+
+

@@ -48,6 +48,8 @@ class DeterministicSubscriptionFeed(subscription_feed.SubscriptionFeed):
         data = json.loads(msg.data.decode())
         delta_dob = time.time() - float(data["dob"])
         self.append_latency(delta_dob)
+        if constants.PRINT_STUFF:
+            print("Got {}".format(msg.data.decode()))
 
     @exceptional.america_please_egzblein
     async def work(self):

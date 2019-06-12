@@ -60,6 +60,9 @@ docker-run: docker-package
 infra-update: docker-publish
 	export IMG_NEW_TAG="${NEXT_TAG}" && docker stack deploy --compose-file infra.yaml ${STACK_NAME}
 
+
+infra-offline: 
+	export IMG_NEW_TAG="${IMG_TAG}" && docker stack deploy --compose-file infra.yaml ${STACK_NAME}
 deploy: destory-stack infra-update
 
 destory-stack:
